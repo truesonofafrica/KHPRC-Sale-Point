@@ -28,7 +28,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-  res.send('<h1>Jobs API</h1><a href="/api-docs">Documentation</a>');
+  res.send('<h1>KHPRC SalePoint API</h1><a href="/api-docs">Documentation</a>');
 });
 
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
