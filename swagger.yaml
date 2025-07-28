@@ -1,0 +1,234 @@
+openapi: 3.0.0
+
+info:
+  title: SalePoint API
+
+  contact: {}
+
+  version: '1.0'
+
+servers:
+  - url: https://khprc-sale-point.onrender.com/api/v1
+
+    variables: {}
+
+paths:
+  /salepoints:
+    get:
+      tags:
+        - Salepoints
+
+      summary: Get All Sale Points
+
+      operationId: GetAllSalePoints
+
+      parameters: []
+
+      responses:
+        '200':
+          description: ''
+
+          headers: {}
+
+      deprecated: false
+
+      security: []
+
+    post:
+      tags:
+        - Salepoints
+
+      summary: Create Sale Point
+
+      operationId: CreateSalePoint
+
+      parameters: []
+
+      requestBody:
+        description: ''
+
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/CreateSalePointRequest'
+
+                - example:
+                    name: AA Mensah
+
+                    region: Western Region
+
+                    city: Takoradi
+
+                    location: Market Circle
+
+                    contacts:
+                      - phone: '0550685789'
+
+            example:
+              name: AA Mensah
+
+              region: Western Region
+
+              city: Takoradi
+
+              location: Market Circle
+
+              contacts:
+                - phone: '0550685789'
+
+        required: true
+
+      responses:
+        '200':
+          description: ''
+
+          headers: {}
+
+      deprecated: false
+
+      security: []
+
+  /salepoints/{id}:
+    parameters:
+      - in: path
+
+        name: id
+
+        schema:
+          type: string
+
+        required: true
+
+        description: The job ID
+
+    get:
+      tags:
+        - Salepoints
+
+      summary: Get Sale Point
+
+      operationId: GetSalePoint
+
+      parameters: []
+
+      responses:
+        '200':
+          description: ''
+
+          headers: {}
+
+      deprecated: false
+
+      security: []
+
+    patch:
+      tags:
+        - Salepoints
+
+      summary: Update Sale Point
+
+      operationId: UpdateSalePoint
+
+      parameters: []
+
+      responses:
+        '200':
+          description: ''
+
+          headers: {}
+
+      deprecated: false
+
+      security: []
+
+    delete:
+      tags:
+        - Salepoints
+
+      summary: Delete Sale Point
+
+      operationId: DeleteSalePoint
+
+      parameters: []
+
+      responses:
+        '200':
+          description: ''
+
+          headers: {}
+
+      deprecated: false
+
+      security: []
+
+components:
+  schemas:
+    CreateSalePointRequest:
+      title: CreateSalePointRequest
+
+      required:
+        - name
+
+        - region
+
+        - city
+
+        - location
+
+        - contacts
+
+      type: object
+
+      properties:
+        name:
+          type: string
+
+        region:
+          type: string
+
+        city:
+          type: string
+
+        location:
+          type: string
+
+        contacts:
+          type: array
+
+          items:
+            $ref: '#/components/schemas/Contact'
+
+          description: ''
+
+      example:
+        name: AA Mensah
+
+        region: Western Region
+
+        city: Takoradi
+
+        location: Market Circle
+
+        contacts:
+          - phone: '0550685789'
+
+    Contact:
+      title: Contact
+
+      required:
+        - phone
+
+      type: object
+
+      properties:
+        phone:
+          type: string
+
+      example:
+        phone: '0550685789'
+
+tags:
+  - name: Salepoints
+
+    description: ''
