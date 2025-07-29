@@ -100,7 +100,7 @@ paths:
 
         required: true
 
-        description: The job ID
+        description: The salepoint ID
 
     get:
       tags:
